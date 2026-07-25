@@ -1,4 +1,4 @@
-# SentryLive: Evidence-Grounded Question Answering over Evolving Documents in Oncology Care
+# SentryLine: Evidence-Grounded Question Answering over Evolving Documents in Oncology Care
 
 Grounded, verified oncology guideline QA. See `EMNLP_System_Description.md`
 for full architecture details.
@@ -8,11 +8,7 @@ for full architecture details.
 - Python 3.10+
 - A Google Gemini API key -- https://console.cloud.google.com/agent-platform/studio/settings/api-keys
   (any valid key works -- not account-restricted)
-- **The PageIndex API key provided alongside this package.** The guidelines in
-  this package are already indexed (`data/guidelines/doc_ids.json` is bundled),
-  which means retrieval only works with the PageIndex account that indexed
-  them -- a different PageIndex key will fail. If you don't have that key,
-  ask whoever gave you this package, or see "Indexing under your own account"
+- **PageIndex API key.** see "Indexing under your own account"
   below.
 
 ## Setup
@@ -26,19 +22,17 @@ pip install -r requirements.txt
 ## Run
 
 ```bash
-python run_demo.py --google-api-key YOUR_GOOGLE_KEY --pageindex-api-key THE_PROVIDED_PAGEINDEX_KEY
+python run_demo.py --google-api-key YOUR_GOOGLE_KEY --pageindex-api-key 
 ```
 
 - Keys can also be supplied via `GOOGLE_API_KEY` / `PAGEINDEX_API_KEY` environment
   variables, or you'll be prompted for them if you omit the flags.
-- Guidelines are **already indexed** in this package -- the demo starts immediately,
-  no waiting or PageIndex credit usage on first run.
 - The demo opens automatically at `http://127.0.0.1:8081` in your default browser.
   Use `--port` to change it, `--no-browser` to skip auto-opening a tab.
 
 ### Indexing under your own account
 
-If you'd rather use your own PageIndex account instead of the bundled index:
+To use your own PageIndex account:
 
 ```bash
 rm data/guidelines/doc_ids.json
@@ -58,19 +52,15 @@ own PageIndex API credits. Every run after that starts immediately, same as abov
   for paragraph-level evidence highlighting
 - `data/guidelines/` -- 56 ASCO breast and prostate cancer guideline PDFs,
   pre-indexed (`doc_ids.json` included)
-- `upload_guidelines.py` -- guideline indexing script (only needed if you
-  delete `doc_ids.json` to index under your own PageIndex account)
+- `upload_guidelines.py` -- guideline indexing script (needed to index under your own PageIndex account)
 - `main.py` -- optional terminal-only chat client, if you'd rather not use the
   web UI (`python main.py`)
 
-Not included: evaluation harness, baseline RAG comparison systems, and dataset
-generation scripts from the source repository -- this package is scoped to
-running the live demo only.
 
 ## Troubleshooting
 
 - **Port already in use:** `python run_demo.py ... --port 8090`
-- **Re-index guidelines from scratch:** delete `data/guidelines/doc_ids.json` and re-run
+- **Re-index guidelines from scratch:** delete `data/guidelines/doc_ids.json` and run
 - **Reset the answer cache / conversation history:** delete the corresponding
   file(s) under `data/cache/` or `data/conversations/` -- both are recreated
   automatically
