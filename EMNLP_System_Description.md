@@ -1,4 +1,4 @@
-# SentryLive: System Description for EMNLP Demonstration
+# SentryLine: System Description for EMNLP Demonstration
 
 *CoRAL Lab, Arizona State University*
 
@@ -142,4 +142,4 @@ A CLI evaluation runner executes the pipeline (or a baseline) over an annotation
 
 ---
 
-*Prepared from the current SentryLive implementation, CoRAL Lab, Arizona State University.*
+*Prepared from the current SentryLine implementation, CoRAL Lab, Arizona State University.*
