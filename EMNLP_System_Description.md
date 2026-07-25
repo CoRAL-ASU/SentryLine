@@ -2,7 +2,7 @@
 
 *CoRAL Lab, Arizona State University*
 
-This document describes the current implementation of SentryLive, an uncertainty-aware clinical question-answering system that grounds oncology answers in living (versioned) ASCO clinical practice guidelines. It is written to be adapted directly into the System Description / Architecture section of an EMNLP system demonstration paper. All details below reflect the actual, current codebase, verified against the running implementation rather than design documents.
+This document describes the current implementation of SentryLine, an uncertainty-aware clinical question-answering system that grounds oncology answers in living (versioned) ASCO clinical practice guidelines. It is written to be adapted directly into the System Description / Architecture section of an EMNLP system demonstration paper. All details below reflect the actual, current codebase, verified against the running implementation rather than design documents.
 
 ---
 
